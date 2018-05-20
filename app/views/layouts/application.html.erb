@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+  ul.hmenu {
+    list-style: none;	
+    margin: 0 0 2em;
+    padding: 0;
+  }
+  
+  ul.hmenu li {
+    display: inline;  
+  }
+
+  </style>
+    <title>MOOC</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  
+
+  <body>
+      <% if user_signed_in? %>
+      <li>
+      <%= link_to('Edit registration', edit_user_registration_path) %>
+      </li>
+    <% else %>
+      <li>
+      <%= link_to('Register', new_user_registration_path)  %>
+      </li>
+    <% end %> 
+    <%= yield %>
+  </body>
+  
+</html>
